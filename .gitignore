@@ -1,11 +1,13 @@
 # Ignore database and service data directories
 /data/
 /log/
-/postgres/
+/postgres_data/
 /rabbitmq-data/
 /secrets/
 /mongodb-data/
-/elasticsearch-data/
+/elasticsearch_data/
+/n8n_data/
+/mongodb_data/
 
 # Node, Python, and common system/editor files
 node_modules/

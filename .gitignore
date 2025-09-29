@@ -1,13 +1,14 @@
 # Ignore database and service data directories
-/data/
-/log/
+/mssql_data/
+/mssql_log/
+/mssql_secrets/
 /postgres_data/
-/rabbitmq-data/
-/secrets/
-/mongodb-data/
+/rabbitmq_data/
+/mongodb_data/
 /elasticsearch_data/
 /n8n_data/
-/mongodb_data/
+/qdrant_data/
+/elasticsearch_data/
 
 # Node, Python, and common system/editor files
 node_modules/
@@ -17,4 +18,4 @@ Thumbs.db
 *.log
 *.tmp
 .idea/
-.vscode/ 
+.vscode/

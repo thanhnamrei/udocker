@@ -7,25 +7,23 @@ services:
     ports:
       - "1433:1433"
     volumes:
-      - ./mssql_data:/var/opt/mssql/data
-      - ./mssql_log:/var/opt/mssql/log
-      - ./mssql_secrets:/var/opt/mssql/secrets
+      - mssql_data:/var/opt/mssql
   rabbitmq:
     image: rabbitmq:4-management
     ports:
       - "5672:5672"
       - "15672:15672"
     volumes:
-      - ./rabbitmq_data:/var/lib/rabbitmq
+      - rabbitmq_data:/var/lib/rabbitmq
   postgres:
     image: postgres:latest
     environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "Your_password123"
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Your_password123
     ports:
       - "5432:5432"
     volumes:
-      - ./postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
   mongodb:
     image: mongodb/mongodb-community-server:latest
     environment:
@@ -34,7 +32,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - ./mongodb_data:/data/db
+      - mongodb_data:/data/db
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:9.0.2
     environment:
@@ -44,7 +42,7 @@ services:
     ports:
       - "9200:9200"
     volumes:
-      - ./elasticsearch_data:/usr/share/elasticsearch/data
+      - elasticsearch_data:/usr/share/elasticsearch/data
   kibana:
     image: docker.elastic.co/kibana/kibana:9.0.2
     environment:
@@ -75,9 +73,8 @@ services:
       - postgres
 volumes:
   mssql_data:
-  mssql_log:
-  mssql_secrets:
   rabbitmq_data:
   mongodb_data:
   elasticsearch_data:
   n8n_data:
+  postgres_data:
